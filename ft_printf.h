@@ -33,11 +33,12 @@ int		ft_printf(const char *str, ...);
 void	conv_s(va_list *list);
 void	conv_id(va_list *list);
 void    conv_c(va_list *list);
+void    conv_x(va_list *list);
 int     check_convert(const char c);
 //void    conv(const char c, va_list args);
 void    ft_putchar(char c);
 size_t	ft_strlen(const char *s);
 void	ft_putnbr(int nb);
-
-
+void	ft_puthexa(int nbr);
+size_t	ft_strlen(const char *s);
 #endif

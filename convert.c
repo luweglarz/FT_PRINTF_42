@@ -36,6 +36,14 @@ void	conv_id(va_list *list)
 	ft_putnbr(nbr);
 }
 
+void    conv_x(va_list *list)
+{
+    int nbr;
+
+    nbr = va_arg(*list, int);
+    ft_puthexa(nbr);
+}
+
 int    check_convert(const char c)
 {
     int i;

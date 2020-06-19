@@ -14,7 +14,7 @@
 
 int		ft_printf(const char *str, ...)
 {
-    void (*tabFunc[4]) (va_list *) = {conv_c, conv_s, conv_id, conv_id};
+    void (*tabFunc[8]) (va_list *) = {conv_c, conv_s, conv_id, conv_id, 0, 0, conv_x};
     int index;
     int i;
     int res;
@@ -48,7 +48,7 @@ int main()
 {
     char *test;
     test = "test";
-    ft_printf("%d %d \n",42, 44);
+    ft_printf("%s %x %x \n",test, 42, 44);
     //printf("fqwfqw%s", test);
 
 }
