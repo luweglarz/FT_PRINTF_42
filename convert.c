@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/19 15:09:36 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/06/19 16:42:38 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/06/22 12:41:15 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,15 @@ void    conv_c(va_list *list)
     write(1, &c, 1);
 }
 
+void    conv_p(va_list *list)
+{
+    int nbr;
+
+    nbr = va_arg(*list, int);
+    ft_putptr(nbr);
+
+}
+
 void	conv_id(va_list *list)
 {
 	int	nbr;
@@ -41,7 +50,15 @@ void    conv_x(va_list *list)
     int nbr;
 
     nbr = va_arg(*list, int);
-    ft_puthexa(nbr);
+    ft_puthexax(nbr);
+}
+
+void    conv_X(va_list *list)
+{
+    int nbr;
+
+    nbr = va_arg(*list, int);
+    ft_puthexaX(nbr);
 }
 
 int    check_convert(const char c)
