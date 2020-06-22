@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/19 15:07:21 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/06/19 16:38:10 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/06/22 12:40:39 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,31 +51,38 @@ void	ft_putnbr(int nb)
 		ft_putchar(nbr + 48);
 }
 
-void	ft_puthexa(int nbr)
+void	ft_puthexax(int nbr)
 {
-    char *hexaDeciNum; 
-    int	i;
-	int tempnb;
+    char *hexa_base;
 
-	i = 0;
-	hexaDeciNum = 0;
-    while(nbr != 0) 
-    {    
-        tempnb = 0; 
-          
-        tempnb = nbr % 16; 
-        if(tempnb < 10) 
-        { 
-            hexaDeciNum[i] = tempnb + 48; 
-            i++; 
-        } 
-        else
-        { 
-            hexaDeciNum[i] = tempnb + 55; 
-            i++; 
-        } 
-          
-        nbr = nbr / 16; 
-    } 
-        ft_putstr(hexaDeciNum); 
+	hexa_base = "0123456789abcdef";
+	if (nbr < 0)
+	{
+		nbr = nbr * -1;
+		ft_putchar('-');
+	}
+	if (nbr >= 16)
+		ft_puthexax(nbr / 16);
+	ft_putchar(hexa_base[(nbr % 16)]);
+}
+
+void	ft_puthexaX(int nbr)
+{
+    char *hexa_base;
+
+	hexa_base = "0123456789ABCDEF";
+	if (nbr < 0)
+	{
+		nbr = nbr * -1;
+		ft_putchar('-');
+	}
+	if (nbr >= 16)
+		ft_puthexaX(nbr / 16);
+	ft_putchar(hexa_base[(nbr % 16)]);
+}
+
+void	ft_putptr(int nbr)
+{
+	ft_putstr("0x");
+	ft_puthexax(nbr);
 }
