@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/19 15:07:21 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/06/22 12:40:39 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/06/22 15:44:51 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void	ft_puthexax(int nbr)
 	}
 	if (nbr >= 16)
 		ft_puthexax(nbr / 16);
-	ft_putchar(hexa_base[(nbr % 16)]);
+		ft_putchar(hexa_base[(nbr % 16)]);
 }
 
 void	ft_puthexaX(int nbr)
@@ -85,4 +85,15 @@ void	ft_putptr(int nbr)
 {
 	ft_putstr("0x");
 	ft_puthexax(nbr);
+}
+
+void	ft_putunsigned(unsigned int nbr)
+{
+	if (nbr > 9)
+	{
+		ft_putnbr(nbr / 10);
+		ft_putnbr(nbr % 10);
+	}
+	else
+		ft_putchar(nbr + 48);
 }
