@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/19 15:09:36 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/06/22 12:41:15 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/06/22 15:33:34 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,14 @@ void	conv_id(va_list *list)
 
 	nbr = va_arg(*list, int);
 	ft_putnbr(nbr);
+}
+
+void    conv_u(va_list *list)
+{
+    unsigned int nbr;
+
+    nbr = va_arg(*list, unsigned int);
+    ft_putunsigned(nbr);
 }
 
 void    conv_x(va_list *list)
