@@ -71,10 +71,8 @@ void    conv_X(va_list *list, t_struct *strct)
 
 void    conv_percent(va_list *list, t_struct *strct)
 {
-    char c;
-
-  c = va_arg(*list, int);
-  ft_putchar(c, strct);
+    (void)list;
+    ft_putchar('%', strct);
 }
 
 char    check_convert(char c)

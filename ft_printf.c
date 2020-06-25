@@ -19,23 +19,26 @@ t_tab   g_tab[9] = {
     {'u', &conv_u}, {'x', &conv_x}, {'X', &conv_X}
 };
 
-void    ft_parse(const char *str, t_struct *strct, va_list *args)
+void    struct_init(t_struct *strct)
+{
+    strct->res = 0;
+    strct->index = 0;
+}
+void       ft_parse(const char *str, t_struct *strct, va_list *args)
 {
     int tempindex;
-    int  i;
 
-    i =0 ;
-    strct->index = 0;
      while (str[strct->index])
-    {
-            
-        if (str[strct->index] == '%' && str[strct->index + 1] != '%')
+    {   
+        if (str[strct->index] == '%')
         {     
             tempindex = 0;
             strct->index++;
-            while (tempindex <= 9 && check_convert(str[strct->index]) != g_tab[tempindex].name)
+            while (tempindex <= 9 && str[strct->index] != g_tab[tempindex].name)
                 tempindex++;
+            //printf (" index : %d", tempindex );
             g_tab[tempindex].TabFunc(args, strct);
+            //printf (" index : %d", tempindex );
         }
         else
             ft_putchar(str[strct->index], strct);
@@ -47,8 +50,7 @@ int        ft_printf(const char *format, ...)
 {
     va_list args;
     t_struct strct;
-    strct.res = 0;
-    strct.index = 0;
+    struct_init(&strct);
     va_start(args, format);
     ft_parse(format, &strct, &args);
     va_end(args);
@@ -62,12 +64,11 @@ int main()
     int hint;
     int res1;
     int res2;
-    char *test;
+
     int  *testint;
-    test = "test";
     hint = 42;
     testint = &hint;
-    res1 = ft_printf("%c %s, %i %d %u %x %X %x %X %% %s %u %p\n", 'c', "test", 100, 150, 443242, 3341, 7888, -4311, -513212, "test", -53532,  testint);
+    res1 = ft_printf("%c %s, %i %d %u %x %X %x %X %% %s %u %p\n", 'c', "test", 100, 150, 443242, 3341, 7888, -4311, -513212, "test", -53532, testint);
     res2 = printf("%c %s, %i %d %u %x %X %x %X %% %s %u %p\n", 'c', "test", 100, 150, 443242, 3341, 7888, -4311, -513212, "test", -53532, testint);
     printf("%d\n", res1);
     printf("%d", res2);

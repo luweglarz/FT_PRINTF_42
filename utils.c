@@ -62,7 +62,7 @@ void	ft_puthexax(unsigned nbr, t_struct *strct)
 	hexa_base = "0123456789abcdef";
 	if (nbr >= 16)
 		ft_puthexax(nbr / 16, strct);
-		ft_putchar(hexa_base[(nbr % 16)], strct);
+	ft_putchar(hexa_base[(nbr % 16)], strct);
 }
 
 void	ft_puthexaX(unsigned int nbr, t_struct *strct)
