@@ -6,46 +6,54 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/10 14:46:41 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/06/23 15:14:50 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/06/25 16:44:01 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
-void    ft_parse(const char *str, va_list *args, s_struct *strct, void (**tabFunc)(va_list *, s_struct *))
+t_tab   g_tab[9] = {
+    {'%', &conv_percent}, {'c', &conv_c }, {'s', &conv_s},
+    {'p', &conv_p}, {'d', &conv_id}, {'i', &conv_id},
+    {'u', &conv_u}, {'x', &conv_x}, {'X', &conv_X}
+};
+
+void    ft_parse(const char *str, t_struct *strct, va_list *args)
 {
     int tempindex;
+    int  i;
 
-    tempindex = 0;
-    while (str[strct->index])
+    i =0 ;
+    strct->index = 0;
+     while (str[strct->index])
     {
+            
         if (str[strct->index] == '%' && str[strct->index + 1] != '%')
-        {  
+        {     
+            tempindex = 0;
             strct->index++;
-            tempindex = check_convert(str[strct->index]);
-            if (tempindex != -1)
-                (tabFunc)[tempindex](args, strct);
+            while (tempindex <= 9 && check_convert(str[strct->index]) != g_tab[tempindex].name)
+                tempindex++;
+            g_tab[tempindex].TabFunc(args, strct);
         }
         else
             ft_putchar(str[strct->index], strct);
-    strct->index++;
-    } 
-
+        strct->index++;
+    }    
 }
 
-int		ft_printf(const char *format, ...)
+int        ft_printf(const char *format, ...)
 {
     va_list args;
-    s_struct strct;
-    void (*tabFunc[8]) (va_list *, s_struct *) = {conv_c, conv_s, conv_p, conv_id, conv_id, conv_u, conv_x, conv_X};
-
+    t_struct strct;
     strct.res = 0;
+    strct.index = 0;
     va_start(args, format);
-    ft_parse(format, &args, &strct, (tabFunc));
+    ft_parse(format, &strct, &args);
     va_end(args);
     return (strct.res);
 }
-
 
 #include <stdio.h>
 
@@ -59,8 +67,8 @@ int main()
     test = "test";
     hint = 42;
     testint = &hint;
-    res1 = ft_printf("%c %s, %i %d %u %x %X %% \n", 'c', "test", 100, 150, 443242, 3341, 7888);
-    res2 = printf("%c %s, %i %d %u %x %X %% \n", 'c', "test",  100, 150, 443242, 3341, 7888);
+    res1 = ft_printf("%c %s, %i %d %u %x %X %x %X %% %s %u %p\n", 'c', "test", 100, 150, 443242, 3341, 7888, -4311, -513212, "test", -53532,  testint);
+    res2 = printf("%c %s, %i %d %u %x %X %x %X %% %s %u %p\n", 'c', "test", 100, 150, 443242, 3341, 7888, -4311, -513212, "test", -53532, testint);
     printf("%d\n", res1);
     printf("%d", res2);
 }
