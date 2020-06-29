@@ -6,15 +6,15 @@
 #    By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/06/15 14:11:55 by lweglarz          #+#    #+#              #
-#    Updated: 2020/06/19 15:17:25 by lweglarz         ###   ########.fr        #
+#    Updated: 2020/06/29 14:36:11 by lweglarz         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=libftprintf.a
 
-SRCS= ft_printf.c utils.c convert.c \
+SRCS= ft_printf.c utils1.c utils2.c convert1.c convert2.c \
 
-OBJS= ft_printf.o utils.o convert.o \
+OBJS= ft_printf.o utils1.o utils2.o convert1.o convert2.o \
 
 RM	= rm -f
 
