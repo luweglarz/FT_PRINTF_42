@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/10 14:46:41 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/06/29 15:55:15 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/06/30 14:50:22 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,10 @@ int main()
 
     int  *testint;
     hint = 42;
-    testint = &hint;
-    res1 = ft_printf("%c %s, %i %d %u %x %X %x %X %% %s %u %p\n", 'c', "test", 100, 150, 443242, 3341, 7888, -4311, -513212, "test", -53532, testint);
-    res2 = printf("%c %s, %i %d %u %x %X %x %X %% %s %u %p\n", 'c', "test", 100, 150, 443242, 3341, 7888, -4311, -513212, "test", -53532, testint);
+    testint = &hint;	
+    res1 = ft_printf("%c %s, %i %d %u %x %X %x %X %% %s %u %p \n", 'c', "test", 100, 150, 443242, 3341, 7888, -4311, -513212, "test", -53532, testint);
+    res2 = printf("%c %s, %i %d %u %x %X %x %X %% %s %u %p \n", 'c', "test", 100, 150, 443242, 3341, 7888, -4311, -513212, "test", -53532, testint);
     printf("%d\n", res1);
     printf("%d", res2);
 }
+	

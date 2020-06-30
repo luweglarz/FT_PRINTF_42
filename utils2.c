@@ -6,13 +6,13 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 13:34:16 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/06/29 15:06:41 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/06/30 15:08:41 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_puthexax(unsigned nbr, t_struct *strct)
+void	ft_puthexax(unsigned long long nbr, t_struct *strct)
 {
 	char *hexa_base;
 
@@ -32,10 +32,10 @@ void	ft_puthexcapsx(unsigned int nbr, t_struct *strct)
 	ft_putchar(hexa_base[(nbr % 16)], strct);
 }
 
-void	ft_putptr(unsigned long nbr, t_struct *strct)
+void	ft_putptr(void *nbr, t_struct *strct)
 {
 	ft_putstr("0x", strct);
-	ft_puthexax(nbr, strct);
+	ft_puthexax((size_t)nbr, strct);
 }
 
 void	ft_putunsigned(unsigned int nbr, t_struct *strct)
