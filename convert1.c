@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/19 15:09:36 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/06/30 15:08:58 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/01 12:14:36 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	conv_p(va_list *list, t_struct *strct)
 {
 	unsigned long long nbr;
 
-	nbr = va_arg(*list, unsigned long long );
+	nbr = va_arg(*list, unsigned long long);
 	ft_putstr("0x", strct);
 	ft_puthexax(nbr, strct);
 }
