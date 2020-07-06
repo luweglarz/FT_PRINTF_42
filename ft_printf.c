@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/10 14:46:41 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/01 15:43:56 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/06 12:47:11 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,18 +19,49 @@ c_tab		g_tab[9] = {
 	{'u', &conv_u}, {'x', &conv_x}, {'X', &conv_capsx}
 };
 
-//f_tab		h_tab[4] = {
-	//{'*', &ft_star}, {'.', &ft_dot},
-	//{'-', &ft_minus}, {'0', &ft_zero}
-//};
-
 void		struct_init(t_struct *strct)
 {
 	strct->res = 0;
 	strct->index = 0;
+}	
+
+void		flags_init(f_flags *strct)
+{
+	strct->pres = 0;
+	strct->width = 0;
+	strct->zero = 0;
+	strct->star = 0;
+	strct->minus = 0;
 }
 
-void		ft_parse(const char *str, t_struct *strct, va_list *args)
+int			is_flag(int c)
+{
+	char 	*flags;
+	int		i;
+
+	flags[4] = "-0.*";
+	i = 0;
+	while (flags[i])
+	{
+		if(c == flags[i])
+			return (1);
+		i++;
+	}
+	return (0);
+}	
+
+void		ft_parse_flags(const char *str, t_struct *strct, va_list *args, f_flags *flags)
+{
+	while (is_flag(str[strct->index]))
+	{
+		if(str[strct->index] == '0')
+			flags->zero = 1;
+		
+
+	}
+}
+
+void		ft_parse(const char *str, t_struct *strct, va_list *args, f_flags *flags)
 {
 	int tempindex;
 
@@ -40,12 +71,10 @@ void		ft_parse(const char *str, t_struct *strct, va_list *args)
 		{
 			tempindex = 0;
 			strct->index++;
+			ft_parse_flags(str, strct, args, flags);
 			while (tempindex <= 9 && str[strct->index] != g_tab[tempindex].name)
 				tempindex++;
-			g_tab[tempindex].tabcfunc(args, strct);
-			//while (tempindex <= 4 && str[strct->index] != h_tab[tempindex].name)
-				//tempindex++;
-			//h_tab[tempindex].tabffunc(str, args, strct);
+			g_tab[tempindex].tabcfunc(args, strct);	
 		}
 		else
 			ft_putchar(str[strct->index], strct);
@@ -57,10 +86,10 @@ int			ft_printf(const char *format, ...)
 {
 	va_list		args;
 	t_struct	strct;
-
+	f_flags     flags;
 	struct_init(&strct);
 	va_start(args, format);
-	ft_parse(format, &strct, &args);
+	ft_parse(format, &strct, &args, &flags);
 	va_end(args);
 	return (strct.res);
 }

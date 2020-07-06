@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/10 16:50:20 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/01 16:11:46 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/04 14:35:11 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,23 +21,23 @@ typedef struct		s_struct
 {
 	int		index;
 	int		res;
+}					t_struct;
+
+typedef struct		s_flags
+{
 	int		pres;
 	int		minus;
-	int		star;
-	
-}					t_struct;
+	int		width;
+	int		zero;
+	int	    star;
+
+}					f_flags;
 
 typedef struct		conv_tab
 {
 	char	name;
 	void	(*tabcfunc)(va_list *, t_struct *);
 }					c_tab;
-
-//typedef struct		subspe_tab
-//{
-//	char	name;
-//	void	(*tabffunc)(const char *, va_list *, t_struct *);
-//}					f_tab;
 
 int					ft_printf(const char *str, ...);
 void				conv_s(va_list *list, t_struct *strct);
