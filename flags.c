@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   subspe.c                                           :+:      :+:    :+:   */
+/*   flags.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/01 14:43:59 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/01 15:13:17 by lweglarz         ###   ########.fr       */
+/*   Created: 2020/07/06 15:54:50 by lweglarz          #+#    #+#             */
+/*   Updated: 2020/07/06 16:20:24 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void    ft_star(const char *str, va_list *list, t_struct *strct)
+void    conv_flag_dot(const char *str, va_list *args, f_flags *flags, t_struct *strct)
 {
+    if (str[strct->index + 1] == '*')
+    {
+        flags->dot = va_arg(*args, int);
+        strct->index++; 
+    }   
+    else
+    {
 
+        while (is_digit(str[strct->index]))
+        {
+                
 
-}
-
-void    ft_dot(const char *str, va_list *list, t_struct *strct)
-{
-
-
-}
-
-void    ft_minus(const char *str, va_list *list, t_struct *strct)
-{
-
-
-}
-
-void    ft_zero(const char *str, va_list *list, t_struct *strct)
-{
-
-    
+        }
+    }
 }

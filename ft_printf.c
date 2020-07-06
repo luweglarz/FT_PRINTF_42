@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/10 14:46:41 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/06 12:47:11 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/06 16:22:11 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ void		ft_parse_flags(const char *str, t_struct *strct, va_list *args, f_flags *f
 	{
 		if(str[strct->index] == '0')
 			flags->zero = 1;
+		if (str[strct->index] == '.')
+			conv_flag_dot(str, args, flags, strct);
 		
 
 	}
@@ -69,6 +71,7 @@ void		ft_parse(const char *str, t_struct *strct, va_list *args, f_flags *flags)
 	{
 		if (str[strct->index] == '%')
 		{
+			flags_init(flags);
 			tempindex = 0;
 			strct->index++;
 			ft_parse_flags(str, strct, args, flags);

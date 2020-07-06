@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 13:34:16 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/06/30 15:08:41 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/06 16:11:26 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,11 @@ void	ft_putunsigned(unsigned int nbr, t_struct *strct)
 	}
 	else
 		ft_putchar(nbr + 48, strct);
+}
+
+int	ft_isdigit(int c)
+{
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }

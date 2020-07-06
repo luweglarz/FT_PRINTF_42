@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/10 16:50:20 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/04 14:35:11 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/06 16:21:47 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct		s_flags
 	int		width;
 	int		zero;
 	int	    star;
+	int		dot;
 
 }					f_flags;
 
@@ -48,10 +49,7 @@ void				conv_x(va_list *list, t_struct *strct);
 void				conv_capsx(va_list *list, t_struct *strct);
 void				conv_p(va_list *list, t_struct *strct);
 void				conv_percent(va_list *list, t_struct *strct);
-void    			ft_star(const char *str, va_list *list, t_struct *strct);
-void    			ft_dot(const char *str, va_list *list, t_struct *strct);
-void    			ft_minus(const char *str, va_list *list, t_struct *strct);
-void    			ft_zero(const char *str, va_list *list, t_struct *strct);
+void    			conv_flag_dot(const char *str, va_list *args, f_flags *flags, t_struct *strct);
 void				ft_putchar(char c, t_struct *strct);
 size_t				ft_strlen(const char *s);
 void				ft_putnbr(int nb, t_struct *strct);
@@ -60,5 +58,6 @@ void				ft_puthexcapsx(unsigned int nbr, t_struct *strct);
 void				ft_putptr(void *nbr, t_struct *strct);
 void				ft_putstr(char *str, t_struct *strct);
 void				ft_putunsigned(unsigned int nbr, t_struct *strct);
+int					ft_isdigit(int c);
 
 #endif
