@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/10 16:50:20 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/06 16:21:47 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/07 14:35:37 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,27 +37,29 @@ typedef struct		s_flags
 typedef struct		conv_tab
 {
 	char	name;
-	void	(*tabcfunc)(va_list *, t_struct *);
+	void	(*tabcfunc)(va_list *, t_struct *, f_flags *);
 }					c_tab;
 
 int					ft_printf(const char *str, ...);
-void				conv_s(va_list *list, t_struct *strct);
-void				conv_id(va_list *list, t_struct *strct);
-void				conv_c(va_list *list, t_struct *strct);
-void				conv_u(va_list *list, t_struct *strct);
-void				conv_x(va_list *list, t_struct *strct);
-void				conv_capsx(va_list *list, t_struct *strct);
-void				conv_p(va_list *list, t_struct *strct);
-void				conv_percent(va_list *list, t_struct *strct);
+void				conv_s(va_list *list, t_struct *strct, f_flags *flags);
+void				conv_id(va_list *list, t_struct *strct, f_flags *flags);
+void				conv_c(va_list *list, t_struct *strct, f_flags *flags);
+void				conv_u(va_list *list, t_struct *strct, f_flags *flags);
+void				conv_x(va_list *list, t_struct *strct, f_flags *flags);
+void				conv_capsx(va_list *list, t_struct *strct, f_flags *flags);
+void				conv_p(va_list *list, t_struct *strct, f_flags *flags);
+void				conv_percent(va_list *list, t_struct *strct, f_flags *flags);
 void    			conv_flag_dot(const char *str, va_list *args, f_flags *flags, t_struct *strct);
-void				ft_putchar(char c, t_struct *strct);
+void				ft_putchar(char c, t_struct *strct, f_flags *flags);
 size_t				ft_strlen(const char *s);
-void				ft_putnbr(int nb, t_struct *strct);
-void				ft_puthexax(unsigned long long nbr, t_struct *strct);
-void				ft_puthexcapsx(unsigned int nbr, t_struct *strct);
-void				ft_putptr(void *nbr, t_struct *strct);
-void				ft_putstr(char *str, t_struct *strct);
-void				ft_putunsigned(unsigned int nbr, t_struct *strct);
+void	ft_putnbr(int nb, t_struct *strct, f_flags *flags);
+void	ft_puthexax(unsigned long long nbr, t_struct *strct, f_flags *flags);
+void	ft_puthexcapsx(unsigned int nbr, t_struct *strct, f_flags *flags);
+void				ft_putptr(void *nbr, t_struct *strct, f_flags *flags);
+void				ft_putstrprec(char *str, t_struct *strct, f_flags *flags);
+void	ft_putunsigned(unsigned int nbr, t_struct *strct, f_flags *flags);
 int					ft_isdigit(int c);
+void    	treat_string(char *str, t_struct *strct, f_flags *flags);
+void	ft_putstr(char *str, t_struct *strct);
 
 #endif

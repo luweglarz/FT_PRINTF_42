@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/10 14:46:41 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/06 16:22:11 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/07 17:02:45 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void		flags_init(f_flags *strct)
 	strct->zero = 0;
 	strct->star = 0;
 	strct->minus = 0;
+	strct->dot = 0;
 }
 
 int			is_flag(int c)
@@ -39,8 +40,8 @@ int			is_flag(int c)
 	char 	*flags;
 	int		i;
 
-	flags[4] = "-0.*";
 	i = 0;
+	flags = "-0.*";
 	while (flags[i])
 	{
 		if(c == flags[i])
@@ -54,19 +55,16 @@ void		ft_parse_flags(const char *str, t_struct *strct, va_list *args, f_flags *f
 {
 	while (is_flag(str[strct->index]))
 	{
-		if(str[strct->index] == '0')
-			flags->zero = 1;
 		if (str[strct->index] == '.')
 			conv_flag_dot(str, args, flags, strct);
-		
-
+		//strct->index++;
 	}
 }
 
 void		ft_parse(const char *str, t_struct *strct, va_list *args, f_flags *flags)
 {
 	int tempindex;
-
+	
 	while (str[strct->index])
 	{
 		if (str[strct->index] == '%')
@@ -74,13 +72,14 @@ void		ft_parse(const char *str, t_struct *strct, va_list *args, f_flags *flags)
 			flags_init(flags);
 			tempindex = 0;
 			strct->index++;
-			ft_parse_flags(str, strct, args, flags);
+			if (is_flag(str[strct->index]))
+					ft_parse_flags(str, strct, args, flags);
 			while (tempindex <= 9 && str[strct->index] != g_tab[tempindex].name)
 				tempindex++;
-			g_tab[tempindex].tabcfunc(args, strct);	
+			g_tab[tempindex].tabcfunc(args, strct, flags);	
 		}
 		else
-			ft_putchar(str[strct->index], strct);
+			ft_putchar(str[strct->index], strct, flags);
 		strct->index++;
 	}
 }
