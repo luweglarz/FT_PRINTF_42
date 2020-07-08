@@ -11,8 +11,8 @@ int main()
     testint = &hint;	
 	//ft_printf("\\!/%15c\\!/ \n");
 
-    res1 = ft_printf("s : %-*s t\n", 10, "test");
-    res2 = printf("s : %-10s t\n", "test");
+    res1 = ft_printf("c : %-*c t\n", 10, 'c');
+    res2 = printf("c : %-*c t\n", 10, 'c');
     printf("%d\n", res1);
     printf("%d", res2);
 }

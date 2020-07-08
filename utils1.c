@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/19 15:07:21 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/08 15:05:25 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/08 15:36:49 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,11 +48,6 @@ void	ft_putwidth(f_flags *flags, t_struct *strct, int size)
 	{
 		ft_putchar(' ', strct, flags);
 		flags->width -= 1;
-	}
-	while (flags->zero > 0)
-	{
-		ft_putchar('0', strct, flags);
-		flags->zero -= 1;
 	}
 }
 

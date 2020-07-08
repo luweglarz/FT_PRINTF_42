@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/10 16:50:20 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/08 14:53:54 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/08 15:38:20 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,6 @@ void	ft_putstr(char *str, t_struct *strct);
 void    conv_flag_minus(f_flags *flags, t_struct *strct);
 void    conv_flag_star(va_list *args, f_flags *flags, t_struct *strct);
 void	ft_putwidth(f_flags *flags, t_struct *strct, int size);
+void    print_char(char c, t_struct *strct, f_flags *flags);
 
 #endif
