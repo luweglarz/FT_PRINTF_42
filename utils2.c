@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 13:34:16 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/07 14:35:29 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/08 14:54:58 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	ft_puthexcapsx(unsigned int nbr, t_struct *strct, f_flags *flags)
 
 void	ft_putptr(void *nbr, t_struct *strct, f_flags *flags)
 {
-	ft_putstrprec("0x", strct, flags);
+	ft_putstr("0x", strct);
 	ft_puthexax((size_t)nbr, strct, flags);
 }
 

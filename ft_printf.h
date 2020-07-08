@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/10 16:50:20 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/07 14:35:37 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/08 14:53:54 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,17 @@ void				conv_percent(va_list *list, t_struct *strct, f_flags *flags);
 void    			conv_flag_dot(const char *str, va_list *args, f_flags *flags, t_struct *strct);
 void				ft_putchar(char c, t_struct *strct, f_flags *flags);
 size_t				ft_strlen(const char *s);
-void	ft_putnbr(int nb, t_struct *strct, f_flags *flags);
+void		ft_putnbr(int nb, t_struct *strct, f_flags *flags);
 void	ft_puthexax(unsigned long long nbr, t_struct *strct, f_flags *flags);
 void	ft_puthexcapsx(unsigned int nbr, t_struct *strct, f_flags *flags);
 void				ft_putptr(void *nbr, t_struct *strct, f_flags *flags);
-void				ft_putstrprec(char *str, t_struct *strct, f_flags *flags);
-void	ft_putunsigned(unsigned int nbr, t_struct *strct, f_flags *flags);
+void	ft_putstrprec(char *str, t_struct *strct, int size, f_flags *flags);
+void		ft_putunsigned(unsigned int nbr, t_struct *strct, f_flags *flags);
 int					ft_isdigit(int c);
-void    	treat_string(char *str, t_struct *strct, f_flags *flags);
+void    	print_string(char *str, t_struct *strct, f_flags *flags);
 void	ft_putstr(char *str, t_struct *strct);
+void    conv_flag_minus(f_flags *flags, t_struct *strct);
+void    conv_flag_star(va_list *args, f_flags *flags, t_struct *strct);
+void	ft_putwidth(f_flags *flags, t_struct *strct, int size);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/10 14:46:41 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/07 17:02:45 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/08 15:13:38 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,19 @@ int			is_flag(int c)
 
 void		ft_parse_flags(const char *str, t_struct *strct, va_list *args, f_flags *flags)
 {
-	while (is_flag(str[strct->index]))
-	{
+		if (str[strct->index] == '0' && flags->minus == 0)
+			flags->zero = 1;
+		if (str[strct->index] == '-')
+			conv_flag_minus(flags, strct);
 		if (str[strct->index] == '.')
 			conv_flag_dot(str, args, flags, strct);
-		//strct->index++;
-	}
+		if (str[strct->index] == '*')
+			conv_flag_star(args, flags, strct);
+		while(ft_isdigit(str[strct->index]))
+		{
+			flags->width = (flags->width * 10) + (str[strct->index] - '0');
+			strct->index++;
+		}
 }
 
 void		ft_parse(const char *str, t_struct *strct, va_list *args, f_flags *flags)
@@ -67,13 +74,14 @@ void		ft_parse(const char *str, t_struct *strct, va_list *args, f_flags *flags)
 	
 	while (str[strct->index])
 	{
+		flags_init(flags);
 		if (str[strct->index] == '%')
 		{
-			flags_init(flags);
 			tempindex = 0;
 			strct->index++;
 			if (is_flag(str[strct->index]))
 					ft_parse_flags(str, strct, args, flags);
+			//printf("width = %d", flags->width);
 			while (tempindex <= 9 && str[strct->index] != g_tab[tempindex].name)
 				tempindex++;
 			g_tab[tempindex].tabcfunc(args, strct, flags);	
