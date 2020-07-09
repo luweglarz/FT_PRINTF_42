@@ -10,9 +10,9 @@ int main()
     hint = 42;
     testint = &hint;	
 	//ft_printf("\\!/%15c\\!/ \n");
+    res2 = printf("real printf c : %-2.2s\n", "abc");
+    res1 = ft_printf("myyy printf c : %-2.2s\n", "abc");
 
-    res1 = ft_printf("c : %-*c t\n", 10, 'c');
-    res2 = printf("c : %-*c t\n", 10, 'c');
     printf("%d\n", res1);
     printf("%d", res2);
 }

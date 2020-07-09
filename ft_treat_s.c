@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 14:43:34 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/08 15:13:34 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/09 16:21:31 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,8 @@ void    print_string(char *str, t_struct *strct, f_flags *flags)
 	if (!str)
 		str = (NULL);
 	if (flags->minus == 1)
-	{
-		ft_putstr(str, strct);
 		ft_putwidth(flags, strct, ft_strlen(str));
-	}
-    else if (flags->dot > 0)
-        ft_putstrprec(str, strct, flags->dot, flags);
-	else
-		ft_putstrprec(str, strct, ft_strlen(str), flags);
+	ft_putstrprec(str, strct, flags);
+	if (flags->minus == 0)
+		ft_putwidth(flags, strct, ft_strlen(str));
 }
