@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/10 14:43:59 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/11 14:17:50 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/11 14:35:01 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void		struct_init(t_struct *strct)
 
 void		flags_init(t_struct *strct)
 {
-	strct->pres = 0;
+	strct->prec = 0;
 	strct->width = 0;
 	strct->zero = 0;
 	strct->star = 0;

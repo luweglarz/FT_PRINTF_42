@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/06 15:54:50 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/11 14:16:31 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/11 14:35:07 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,15 @@
 void	conv_flag_dot(char *str, va_list *args, t_struct *strct)
 {
     strct->index++;
+    strct->dot = 1;
     if (str[strct->index] == '*')
     {
-        strct->dot = va_arg(*args, int);
+        strct->prec = va_arg(*args, int);
         strct->index++; 
     }
     while (ft_isdigit(str[strct->index]))
     {
-        strct->dot = (strct->dot * 10) + (str[strct->index] - '0');
+        strct->prec = (strct->prec * 10) + (str[strct->index] - '0');
         strct->index++;
     }
 }

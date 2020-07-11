@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/10 16:50:20 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/11 14:19:32 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/11 14:39:32 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct		s_struct
 	int		index;
 	int		res;
 	
-	int		pres;
+	int		prec;
 	int		minus;
 	int		width;
 	int		zero;
@@ -93,7 +93,7 @@ int					ft_isconv(int c);
 void				struct_init(t_struct *strct);
 void				flags_init(t_struct *strct);
 int					ft_is_flag(int c);
-void				ft_treat_string(char *str, t_struct *strct);
-void				ft_put_part_int(char *str, t_struct *strct);
+void			ft_print_string(char *str, t_struct *strct);
+void				ft_put_minus(char *str, t_struct *strct);
 
 #endif
