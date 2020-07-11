@@ -6,43 +6,57 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/06 15:54:50 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/09 16:48:16 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/11 14:16:31 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
-void    conv_flag_dot(const char *str, va_list *args, f_flags *flags, t_struct *strct)
+// Fonction qui recupere la precision
+// - Si la precision est suivi d'une etoile on recupere l'argument et en remplis l'int dot (la precision) de la structure
+// - Si la precision est suivi de digits directement dans le format on remplis l'int dot avec leur valeur total
+
+void	conv_flag_dot(char *str, va_list *args, t_struct *strct)
 {
     strct->index++;
     if (str[strct->index] == '*')
     {
-        flags->dot = va_arg(*args, int);
+        strct->dot = va_arg(*args, int);
         strct->index++; 
-    }   
+    }
     while (ft_isdigit(str[strct->index]))
     {
-        flags->dot = (flags->dot * 10) + (str[strct->index] - '0');
+        strct->dot = (strct->dot * 10) + (str[strct->index] - '0');
         strct->index++;
     }
 }
 
-void    conv_flag_minus(f_flags *flags)
+// Fonction traitement du left alignement '-'
+// - On met minus a 1 pour prendre en compte le left alignemnet
+// - On met zero a 0 car le left alignement ne marche pas avec 0, zero doit etre pris en compte seulement si l'alignement est right
+
+void    conv_flag_minus(t_struct *strct)
 {
-    flags->minus = 1;
-    flags->zero = 0;
+    strct->minus = 1;
+    strct->zero = 0;
 }
 
-void    conv_flag_star(va_list *args, f_flags *flags)
+// Fonction de traitement d'un star '*'
+// - On recupere l'argument de star et on remplis son int avec cette valeur;
+
+void    conv_flag_star(va_list *args, t_struct *strct)
 {
-    flags->width = va_arg(*args, int);
-    flags->star = 1;
+    strct->width = va_arg(*args, int);
+    strct->star = 1;
 }
 
-void    conv_flag_digit(char c, f_flags *flags)
+// Fonction de traitement des digits
+// - Si on a deja recuperer une valeur avec star on remet width a 0
+// - On parcour les digits et en remplissant width de leur valeur
+
+void    conv_flag_digit(char c, t_struct *strct)
 {
-	if (flags->star == 1)
-		flags->width = 0;
-	flags->width = (flags->width * 10) + (c - '0');
+	if (strct->star == 1)
+		strct->width = 0;
+	strct->width = (strct->width * 10) + (c - '0');
 }

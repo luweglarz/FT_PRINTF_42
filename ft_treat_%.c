@@ -6,14 +6,14 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 14:49:40 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/07 14:49:50 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/10 14:14:01 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	conv_percent(va_list *list, t_struct *strct, f_flags *flags)
+void	conv_per(va_list *list, t_struct *strct)
 {
 	(void)list;
-	ft_putchar('%', strct, flags);
+	ft_putchar('%', strct);
 }
