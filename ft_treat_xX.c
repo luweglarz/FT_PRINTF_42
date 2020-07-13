@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 14:48:35 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/11 12:54:23 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/13 12:31:10 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,3 +27,9 @@ void	conv_capsx(va_list *list, t_struct *strct)
 	nbr = va_arg(*list, unsigned int);
 	ft_puthexcapsx(nbr, strct);
 }	
+
+void	ft_printhexa()
+{
+
+	
+}

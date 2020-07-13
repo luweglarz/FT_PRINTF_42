@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/10 16:50:20 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/11 14:39:32 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/13 12:56:11 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef struct		s_struct
 {
 	int		index;
 	int		res;
-	
+
 	int		prec;
 	int		minus;
 	int		width;
@@ -42,7 +42,7 @@ typedef struct		s_tab
 
 //Proto Printf
 
-int					ft_printf(const char *str, ...);
+int			ft_printf(const char *str, ...);
 
 // Fonctions de parsing
 
@@ -51,49 +51,49 @@ void		ft_parse(const char *str, t_struct *strct, va_list *args);
 
 //Fonctions de conversions de caractere
 
-void				conv_s(va_list *list, t_struct *strct);
-void				conv_id(va_list *list, t_struct *strct);
-void				conv_c(va_list *list, t_struct *strct);
-void				conv_u(va_list *list, t_struct *strct);
-void				conv_x(va_list *list, t_struct *strct);
-void				conv_capsx(va_list *list, t_struct *strct);
-void				conv_p(va_list *list, t_struct *strct);
-void				conv_per(va_list *list, t_struct *strct);
+void		conv_s(va_list *list, t_struct *strct);
+void		conv_id(va_list *list, t_struct *strct);
+void		conv_c(va_list *list, t_struct *strct);
+void		conv_u(va_list *list, t_struct *strct);
+void		conv_x(va_list *list, t_struct *strct);
+void		conv_capsx(va_list *list, t_struct *strct);
+void		conv_p(va_list *list, t_struct *strct);
+void		conv_per(va_list *list, t_struct *strct);
 
 // Fonctions de traitement des specfiers
 
-void				conv_flag_dot(char *str, va_list *args, t_struct *strct);
-void				conv_flag_minus(t_struct *strct);
-void				conv_flag_star(va_list *args, t_struct *strct);
-void				conv_flag_digit(char c, t_struct *strct);
+void		conv_flag_dot(char *str, va_list *args, t_struct *strct);
+void		conv_flag_minus(t_struct *strct);
+void		conv_flag_star(va_list *args, t_struct *strct);
+void		conv_flag_digit(char c, t_struct *strct);
 
 // Utilitaires d'affichage
 
-void				ft_putchar(char c, t_struct *strct);
-void    			print_string(char *str, t_struct *strct);
-void				ft_putstr(char *str, t_struct *strct);
-void				ft_putnbr(int nb, t_struct *strct);
-void				ft_puthexax(unsigned long long nbr, t_struct *strct);
-void				ft_puthexcapsx(unsigned long long nbr, t_struct *strct);
-void				ft_putptr(void *nbr, t_struct *strct);
-void				ft_putstrprec(char *str, int size, t_struct *strct);
-void				ft_putunsigned(unsigned int nbr, t_struct *strct);
-void				print_string(char *str, t_struct *strct);
-void				ft_putwidth(t_struct *strct, int width, int size, int iszero);
-void    			print_char(char c, t_struct *strct);
-void				print_pointer(unsigned long long nbr, t_struct *strct);
-void				print_id(int nbr, t_struct *strct);
+void		ft_putchar(char c, t_struct *strct);
+void		print_string(char *str, t_struct *strct);
+void		ft_putstr(char *str, t_struct *strct);
+void		ft_putnbr(int nb, t_struct *strct);
+void		ft_puthexax(unsigned long long nbr, t_struct *strct);
+void		ft_puthexcapsx(unsigned long long nbr, t_struct *strct);
+void		ft_putptr(void *nbr, t_struct *strct);
+void		ft_putstrprec(char *str, int size, t_struct *strct);
+void		ft_putunsigned(unsigned int nbr, t_struct *strct);
+void		print_string(char *str, t_struct *strct);
+void		ft_putwidth(t_struct *strct, int width, int size);
+void		print_char(char c, t_struct *strct);
+void		print_pointer(unsigned long long nbr, t_struct *strct);
+void		print_id(int nbr, t_struct *strct);
 
 // Autre utilitaires
 
-size_t				ft_strlen(const char *s);
-int					ft_isdigit(int c);
-long long			number_size(long long nb);
-int					ft_isconv(int c);
-void				struct_init(t_struct *strct);
-void				flags_init(t_struct *strct);
-int					ft_is_flag(int c);
-void			ft_print_string(char *str, t_struct *strct);
-void				ft_put_minus(char *str, t_struct *strct);
+size_t		ft_strlen(const char *s);
+int			ft_isdigit(int c);
+long long	number_size(long long nb);
+int			ft_isconv(int c);
+void		struct_init(t_struct *strct);
+void		flags_init(t_struct *strct);
+int			ft_is_flag(int c);
+void		ft_print_string(char *str, t_struct *strct);
+void		ft_put_minus(char *str, t_struct *strct);
 
 #endif
