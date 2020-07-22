@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/10 14:43:59 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/11 14:35:01 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/22 16:28:42 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,11 @@ int		ft_isconv(int c)
 		i++;
 	}
 	return (0);
+}
+
+int	ft_tolower(int c)
+{
+	if (c >= 'A' && c <= 'Z')
+		c += 32;
+	return (c);
 }

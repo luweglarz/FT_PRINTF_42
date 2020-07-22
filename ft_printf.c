@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/10 14:46:41 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/13 12:49:06 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/22 13:44:01 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void		ft_parse_subspec(const char *str, t_struct *strct, va_list *args)
 		while (str[strct->index])
 		{
 		if (!ft_isdigit(str[strct->index]) && !ft_is_flag(str[strct->index]))
-			break ;
+			break;
 		if (str[strct->index] == '0' && strct->width == 0 && strct->minus == 0)
 			strct->zero = 1;
 		if (str[strct->index] == '.')
@@ -40,7 +40,7 @@ void		ft_parse_subspec(const char *str, t_struct *strct, va_list *args)
 		if (ft_isdigit(str[strct->index]))
 			conv_flag_digit(str[strct->index], strct);
 		if (ft_isconv(str[strct->index]))
-			break ;
+			break;
 		strct->index++;
 		}
 }

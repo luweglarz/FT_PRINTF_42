@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 14:43:34 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/13 13:59:47 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/22 13:46:10 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void		ft_print_string(char *str, t_struct *strct)
 		ft_put_minus(str, strct);
 	if (strct->dot == 1)
 		ft_putwidth(strct, strct->width, strct->prec);
-	else
+	else	
 		ft_putwidth(strct, strct->width, ft_strlen(str));
 	if (strct->minus == 0)
 		ft_put_minus(str, strct);

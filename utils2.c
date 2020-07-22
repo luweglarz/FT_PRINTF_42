@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 13:34:16 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/13 12:29:33 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/22 16:25:57 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,49 @@ void	ft_puthexcapsx(unsigned long long nbr, t_struct *strct)
 		ft_puthexcapsx(nbr / 16, strct);
 	ft_putchar(hexa_base[(nbr % 16)], strct);
 }
-
-void	ft_putptr(void *nbr, t_struct *strct)
+char	*ft_strdup(const char *s)
 {
-	ft_putstr("0x", strct);
-	ft_puthexax((size_t)nbr, strct);
+	int		i;
+	int		size;
+	char	*str;
+
+	i = 0;
+	size = 0;
+	while (s[size])
+		size++;
+	if (!(str = malloc(sizeof(char) * (size + 1))))
+		return (NULL);
+	while (i < size)
+	{
+		str[i] = s[i];
+		i++;
+	}
+	str[i] = '\0';
+	return (str);
+}
+
+char		*ft_itoa_hexa(unsigned long long n)
+{
+	char				*str;
+	unsigned int		size;
+
+	size = number_size(n);
+	if (!(str = malloc(sizeof(char) * size + 1)))
+		return (NULL);
+	str[size--] = '\0';
+	if (n == 0)
+		return (ft_strdup("0"));
+	while (n != 0)
+	{
+		size--;
+		if (n % 16 < 10)
+			str[size] = (n % 16) + 48;
+		else
+			str[size] = (n % 16) + 55;
+		n = n / 16;
+
+	}
+	return (str);
 }
 
 void	ft_putunsigned(unsigned int nbr, t_struct *strct)

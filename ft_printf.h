@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/10 16:50:20 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/13 12:56:11 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/22 16:29:14 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,7 @@ void		ft_putchar(char c, t_struct *strct);
 void		print_string(char *str, t_struct *strct);
 void		ft_putstr(char *str, t_struct *strct);
 void		ft_putnbr(int nb, t_struct *strct);
+void		ft_putnbrprec(int nb, int size, t_struct *strct);
 void		ft_puthexax(unsigned long long nbr, t_struct *strct);
 void		ft_puthexcapsx(unsigned long long nbr, t_struct *strct);
 void		ft_putptr(void *nbr, t_struct *strct);
@@ -93,7 +94,12 @@ int			ft_isconv(int c);
 void		struct_init(t_struct *strct);
 void		flags_init(t_struct *strct);
 int			ft_is_flag(int c);
+int			ft_tolower(int c);
 void		ft_print_string(char *str, t_struct *strct);
 void		ft_put_minus(char *str, t_struct *strct);
+char		*ft_itoa_hexa(unsigned long long n);
+void    print_pointer(unsigned long long nbr, t_struct *strct);
+void		ft_put_minuspointer(char *str, t_struct *strct);
+char	*ft_strdup(const char *s);
 
 #endif
