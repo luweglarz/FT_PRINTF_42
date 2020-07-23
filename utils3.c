@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/10 14:43:59 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/23 11:53:50 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/23 15:15:04 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int		ft_isconv(int c)
 	char	*conv;
 	int		i;
 
-	conv = "cspdiuxX";
+	conv = "cspdiuxX%";
 	i = 0;
 	while (conv[i])
 	{
@@ -60,9 +60,14 @@ int		ft_isconv(int c)
 	return (0);
 }
 
-int	ft_tolower(int c)
+void	ft_lowerstr(char *str)
 {
-	if (c >= 'A' && c <= 'Z')
-		c += 32;
-	return (c);
+	int i;
+
+	i = 0;
+	while (str[i])
+	{
+		str[i] = ft_tolower(str[i]);
+		i++;
+	}
 }

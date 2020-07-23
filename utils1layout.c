@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils1.c                                           :+:      :+:    :+:   */
+/*   utils1layout.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/19 15:07:21 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/23 12:41:12 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/23 14:01:22 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
+
 size_t	ft_strlen(const char *s)
 {
 	unsigned int	i;
@@ -70,23 +71,4 @@ void	ft_putnbr(int nb, t_struct *strct)
 	}
 	else
 		ft_putchar(nbr + 48, strct);
-}
-
-long long int	number_size(long long nb)
-{
-	int	size;
-
-	size = 0;
-	if (nb <= 0)
-	{
-		size++;
-		if (nb < 0)
-			nb = nb * -1;
-	}
-	while (nb != 0)
-	{
-		nb = nb / 10;
-		size++;
-	}
-	return (size);
 }

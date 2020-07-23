@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 14:46:13 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/23 12:54:31 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/23 16:16:17 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void	conv_p(va_list *list, t_struct *strct)
 	print_pointer(nbr, strct);
 }
 
+
 void		ft_put_minuspointer(char *str, t_struct *strct)
 {
 	ft_putstrprec("0x", 2, strct);
@@ -34,22 +35,17 @@ void		ft_put_minuspointer(char *str, t_struct *strct)
 		ft_putstrprec(str, ft_strlen(str), strct);
 }
 
-void	ft_lowerstr(char *str)
-{
-	int i;
-
-	i = 0;
-	while (str[i])
-	{
-		str[i] = ft_tolower(str[i]);
-		i++;
-	}
-}
 
 int   print_pointer(unsigned long long nbr, t_struct *strct)
 {
 	char *str;
 
+	if (nbr == 0 && strct->prec == 0 && strct->width == 0)
+	{
+		ft_putwidth(strct , strct->width, 2);
+		ft_putstrprec("0x", 2, strct);
+		return 1;
+	}
 	str = ft_itoa_hexa(nbr);
 	ft_lowerstr(str);
 	if ((size_t)strct->prec < ft_strlen(str))
