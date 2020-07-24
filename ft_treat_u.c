@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 14:47:57 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/10 14:18:33 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/24 12:12:21 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,8 @@ void	conv_u(va_list *list, t_struct *strct)
 	ft_putunsigned(nbr, strct);
 }
 
-/*
-void    ft_treat_unsignedint()
+
+void    ft_print_unsigned()
 {
 
 }
-*/

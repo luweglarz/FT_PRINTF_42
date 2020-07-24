@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 14:46:13 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/24 11:57:41 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/24 12:33:11 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	conv_p(va_list *list, t_struct *strct)
 	unsigned long long nbr;
 
 	nbr = va_arg(*list, unsigned long long);
-	print_pointer(nbr, strct);
+	ft_print_pointer(nbr, strct);
 }
 
 
@@ -36,7 +36,7 @@ void		ft_put_minuspointer(char *str, t_struct *strct)
 }
 
 
-int   print_pointer(unsigned long long nbr, t_struct *strct)
+void	  ft_print_pointer(unsigned long long nbr, t_struct *strct)
 {
 	char *str;
 
@@ -52,5 +52,4 @@ int   print_pointer(unsigned long long nbr, t_struct *strct)
 	if (strct->minus == 0)
 		ft_put_minuspointer(str, strct);
 	free (str);
-	return (1);
 }
