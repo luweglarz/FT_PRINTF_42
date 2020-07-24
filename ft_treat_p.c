@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 14:46:13 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/23 16:16:17 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/24 11:57:41 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,10 @@ int   print_pointer(unsigned long long nbr, t_struct *strct)
 {
 	char *str;
 
-	if (nbr == 0 && strct->prec == 0 && strct->width == 0)
-	{
-		ft_putwidth(strct , strct->width, 2);
-		ft_putstrprec("0x", 2, strct);
-		return 1;
-	}
 	str = ft_itoa_hexa(nbr);
 	ft_lowerstr(str);
+	if (nbr == 0 && strct->prec == 0 && strct->dot == 1)
+		*str = '\0';
 	if ((size_t)strct->prec < ft_strlen(str))
 		strct->prec = ft_strlen(str);
 	if (strct->minus == 1)
