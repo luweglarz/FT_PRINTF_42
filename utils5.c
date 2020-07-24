@@ -6,13 +6,13 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/24 12:38:39 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/24 12:40:05 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/24 15:42:40 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_strdup(const char *s)
+char		*ft_strdup(const char *s)
 {
 	int		i;
 	int		size;
@@ -79,7 +79,6 @@ char		*ft_itoa_hexa(unsigned long long n)
 		else
 			str[size] = (n % 16) + 55;
 		n = n / 16;
-
 	}
 	return (str);
 }
