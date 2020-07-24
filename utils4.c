@@ -6,21 +6,20 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 14:02:34 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/24 12:39:35 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/24 15:41:55 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-
-int	ft_tolower(int c)
+int				ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
 		c += 32;
 	return (c);
 }
 
-int	ft_isdigit(int c)
+int				ft_isdigit(int c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);
