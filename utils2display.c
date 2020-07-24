@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/29 13:34:16 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/24 15:11:15 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/24 15:39:26 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ void	ft_puthexax(unsigned long long nbr, t_struct *strct)
 	char *hexa_base;
 
 	hexa_base = "0123456789abcdef";
-
 	if (nbr >= 16)
 		ft_puthexax(nbr / 16, strct);
 	ft_putchar(hexa_base[(nbr % 16)], strct);
@@ -33,7 +32,6 @@ void	ft_puthexcapsx(unsigned long long nbr, t_struct *strct)
 	ft_putchar(hexa_base[(nbr % 16)], strct);
 }
 
-
 void	ft_putunsigned(unsigned int nbr, t_struct *strct)
 {
 	if (nbr > 9)
@@ -44,4 +42,3 @@ void	ft_putunsigned(unsigned int nbr, t_struct *strct)
 	else
 		ft_putchar(nbr + 48, strct);
 }
-
