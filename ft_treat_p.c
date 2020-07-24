@@ -6,14 +6,14 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 14:46:13 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/24 12:33:11 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/24 15:31:15 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-void	conv_p(va_list *list, t_struct *strct)
+void		conv_p(va_list *list, t_struct *strct)
 {
 	unsigned long long nbr;
 
@@ -21,22 +21,20 @@ void	conv_p(va_list *list, t_struct *strct)
 	ft_print_pointer(nbr, strct);
 }
 
-
-void		ft_put_minuspointer(char *str, t_struct *strct)
+void		ft_put_minus_pointer(char *str, t_struct *strct)
 {
 	ft_putstrprec("0x", 2, strct);
 	if (strct->dot == 1)
 	{
 		strct->zero = 1;
-		ft_putwidth(strct , strct->prec, ft_strlen(str));
+		ft_putwidth(strct->prec, ft_strlen(str), strct);
 		ft_putstrprec(str, strct->prec, strct);
 	}
 	else
 		ft_putstrprec(str, ft_strlen(str), strct);
 }
 
-
-void	  ft_print_pointer(unsigned long long nbr, t_struct *strct)
+void		ft_print_pointer(unsigned long long nbr, t_struct *strct)
 {
 	char *str;
 
@@ -47,9 +45,9 @@ void	  ft_print_pointer(unsigned long long nbr, t_struct *strct)
 	if ((size_t)strct->prec < ft_strlen(str))
 		strct->prec = ft_strlen(str);
 	if (strct->minus == 1)
-		ft_put_minuspointer(str, strct);
-	ft_putwidth(strct, strct->width, ft_strlen(str) + 2);
+		ft_put_minus_pointer(str, strct);
+	ft_putwidth(strct->width, ft_strlen(str) + 2, strct);
 	if (strct->minus == 0)
-		ft_put_minuspointer(str, strct);
-	free (str);
+		ft_put_minus_pointer(str, strct);
+	free(str);
 }
