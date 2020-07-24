@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils1layout.c                                     :+:      :+:    :+:   */
+/*   utils1display.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/19 15:07:21 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/24 15:06:20 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/24 15:38:07 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,9 @@ void	ft_putstrprec(char *str, int size, t_struct *strct)
 }
 
 void	ft_putwidth(int width, int size, t_struct *strct)
-{	
+{
 	while (width - size > 0)
-	{	
+	{
 		if (strct->zero == 1)
 			ft_putchar('0', strct);
 		else
@@ -58,7 +58,6 @@ void	ft_putnbr(int nb, t_struct *strct)
 	long	nbr;
 
 	nbr = nb;
-
 	if (nbr < 0)
 	{
 		ft_putchar('-', strct);
@@ -66,8 +65,8 @@ void	ft_putnbr(int nb, t_struct *strct)
 	}
 	if (nbr > 9)
 	{
-		ft_putnbr(nbr / 10,  strct);
-		ft_putnbr(nbr % 10,  strct);
+		ft_putnbr(nbr / 10, strct);
+		ft_putnbr(nbr % 10, strct);
 	}
 	else
 		ft_putchar(nbr + 48, strct);
