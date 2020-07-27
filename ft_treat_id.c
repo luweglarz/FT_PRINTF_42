@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 14:47:03 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/27 15:19:32 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/27 15:36:44 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void		ft_put_minus_integer(char *str, t_struct *strct, int neg)
 {
 	if (strct->dot == 1)
 	{
-		if (neg == 1 )
+		if (neg == 1)
 			ft_putchar('-', strct);
 		strct->zero = 1;
 		ft_putwidth(strct->prec, ft_strlen(str), strct);
@@ -39,18 +39,27 @@ void		ft_put_minus_integer(char *str, t_struct *strct, int neg)
 	}
 }
 
-void		ft_print_integer(int nbr, t_struct *strct)
+int			ft_isneg(int nbr, t_struct *strct)
 {
-	char *str;
 	int neg;
 
 	neg = 0;
-	str = ft_itoapos(nbr);
-	if(nbr < 0)
+	if (nbr < 0)
 	{
 		neg = 1;
 		strct->width--;
 	}
+	return (neg);
+}
+
+void		ft_print_integer(int nbr, t_struct *strct)
+{
+	char 	*str;
+	int		neg;
+
+	neg = 0;
+	str = ft_itoapos(nbr);
+	ft_isneg(nbr, strct);
 	if (nbr == 0 && strct->dot == 1 && strct->prec == 0)
 		*str = '\0';
 	if ((size_t)strct->prec < ft_strlen(str))

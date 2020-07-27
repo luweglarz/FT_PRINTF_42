@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 14:02:34 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/27 11:48:34 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/27 15:34:06 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,19 +26,19 @@ int				ft_isdigit(int c)
 	return (0);
 }
 
-	long long int	number_size(long long nb)
-	{
-		int	size;
+long long int	number_size(long long nb)
+{
+	int	size;
 
-		size = 0;
-		if (nb <= 0)
-		{
-			size++;
-		}
-		while (nb != 0)
-		{
-			nb = nb / 10;
-			size++;
-		}
-		return (size);
+	size = 0;
+	if (nb <= 0)
+	{
+		size++;
 	}
+	while (nb != 0)
+	{
+		nb = nb / 10;
+		size++;
+	}
+	return (size);
+}
