@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/24 12:38:39 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/24 15:42:40 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/27 15:21:56 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,28 +33,50 @@ char		*ft_strdup(const char *s)
 	return (str);
 }
 
-char		*ft_itoa(int n)
+char		*ft_itoapos(int n)
 {
 	char				*str;
 	unsigned int		size;
-
+	long nbr;
+	
+	nbr = n;
 	size = number_size(n);
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
 	if (!(str = malloc(sizeof(char) * size + 1)))
 		return (NULL);
 	str[size--] = '\0';
-	if (n == 0)
+	if (nbr == 0)
 		str[0] = '0';
-	if (n < 0)
+	if (nbr < 0)
 	{
-		str[0] = '-';
-		n = n * -1;
+		size--;
+		nbr = nbr * -1;
 	}
-	while (n != 0)
+	while (nbr != 0)
 	{
-		str[size] = (n % 10) + '0';
-		n = n / 10;
+		str[size] = (nbr % 10) + '0';
+		nbr = nbr / 10;
+		size--;
+	}
+	return (str);
+}
+
+char		*ft_uitoapos(unsigned int n)
+{
+	char				*str;
+	unsigned int		size;
+	unsigned long nbr;
+	
+	nbr = n;
+	size = number_size(n);
+	if (!(str = malloc(sizeof(char) * size + 1)))
+		return (NULL);
+	str[size--] = '\0';
+	if (nbr == 0)
+		str[0] = '0';
+	while (nbr != 0)
+	{
+		str[size] = (nbr % 10) + '0';
+		nbr = nbr / 10;
 		size--;
 	}
 	return (str);

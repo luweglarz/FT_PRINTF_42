@@ -6,11 +6,12 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 14:47:03 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/24 15:29:50 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/27 15:19:32 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 void		conv_id(va_list *list, t_struct *strct)
 {
@@ -20,31 +21,52 @@ void		conv_id(va_list *list, t_struct *strct)
 	ft_print_integer(nbr, strct);
 }
 
-void		ft_put_minus_integer(char *str, t_struct *strct)
+void		ft_put_minus_integer(char *str, t_struct *strct, int neg)
 {
 	if (strct->dot == 1)
 	{
+		if (neg == 1 )
+			ft_putchar('-', strct);
 		strct->zero = 1;
 		ft_putwidth(strct->prec, ft_strlen(str), strct);
 		ft_putstrprec(str, strct->prec, strct);
 	}
 	else
+	{
+		if (neg == 1 && strct->zero == 0)
+			ft_putchar('-', strct);
 		ft_putstrprec(str, ft_strlen(str), strct);
+	}
 }
 
 void		ft_print_integer(int nbr, t_struct *strct)
 {
 	char *str;
+	int neg;
 
-	str = ft_itoa(nbr);
-	if (nbr == 0 && strct->prec == 0 && strct->dot == 1)
+	neg = 0;
+	str = ft_itoapos(nbr);
+	if(nbr < 0)
+	{
+		neg = 1;
+		strct->width--;
+	}
+	if (nbr == 0 && strct->dot == 1 && strct->prec == 0)
 		*str = '\0';
 	if ((size_t)strct->prec < ft_strlen(str))
 		strct->prec = ft_strlen(str);
+	if (neg == 1 && strct->dot == 0 && strct->zero == 1)
+			ft_putchar('-', strct);
 	if (strct->minus == 1)
-		ft_put_minus_integer(str, strct);
-	ft_putwidth(strct->width, ft_strlen(str), strct);
+		ft_put_minus_integer(str, strct , neg);
+	if (strct->dot == 1)
+	{
+		strct->zero = 0;
+		ft_putwidth(strct->width, strct->prec, strct);
+	}
+	else
+		ft_putwidth(strct->width, ft_strlen(str), strct);
 	if (strct->minus == 0)
-		ft_put_minus_integer(str, strct);
+		ft_put_minus_integer(str, strct, neg);
 	free(str);
 }
