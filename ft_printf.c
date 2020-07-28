@@ -6,12 +6,11 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/10 14:46:41 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/28 15:21:53 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/28 15:23:03 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 t_tab		g_tab[9] = {
 	{'%', &conv_per}, {'c', &conv_c }, {'s', &conv_s},

@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/10 16:50:20 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/28 15:07:29 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/28 15:22:51 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ void			ft_put_minus_integer(char *str, t_struct *strct, int neg);
 void			ft_print_integer(int nbr, t_struct *strct);
 void			ft_put_minus_unsigned(char *str, t_struct *strct);
 void			ft_print_unsigned(unsigned int nbr, t_struct *strct);
+void			ft_put_minus_hexa(char *str, t_struct *strct);
+void			ft_print_hexa(long long nbr, int islower, t_struct *strct);
 
 size_t			ft_strlen(const char *s);
 int				ft_isdigit(int c);
@@ -86,7 +88,5 @@ char			*ft_strdup(const char *s);
 char			*ft_itoapos(int n);
 char			*ft_uitoapos(unsigned int n);
 int				ft_isneg(int nbr, t_struct *strct);
-void			ft_put_minus_hexa(char *str, t_struct *strct);
-void		ft_print_hexa(long long nbr, int islower, t_struct *strct);
 
 #endif
