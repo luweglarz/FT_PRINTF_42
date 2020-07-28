@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 14:47:03 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/28 14:03:53 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/28 15:24:16 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void		ft_put_minus_integer(char *str, t_struct *strct, int neg)
 
 void		ft_print_integer(int nbr, t_struct *strct)
 {
-	char 	*str;
+	char	*str;
 	int		neg;
 
 	str = ft_itoapos(nbr);
@@ -55,9 +55,9 @@ void		ft_print_integer(int nbr, t_struct *strct)
 	if ((size_t)strct->prec < ft_strlen(str))
 		strct->prec = ft_strlen(str);
 	if (neg == 1 && strct->dot == 0 && strct->zero == 1)
-			ft_putchar('-', strct);
+		ft_putchar('-', strct);
 	if (strct->minus == 1)
-		ft_put_minus_integer(str, strct , neg);
+		ft_put_minus_integer(str, strct, neg);
 	if (strct->dot == 1)
 	{
 		strct->zero = 0;
