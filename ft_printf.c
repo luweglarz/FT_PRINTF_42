@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/10 14:46:41 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/28 14:12:26 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/28 15:21:53 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void		ft_parse(const char *str, t_struct *strct, va_list *args)
 			if (tempindex <= 9)
 				g_tab[tempindex].tabcfunc(args, strct);
 			else
-				break;
+				break ;
 		}
 		else
 			ft_putchar(str[strct->index], strct);
