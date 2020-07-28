@@ -6,14 +6,13 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 14:48:35 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/28 15:07:43 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/28 15:27:11 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-
-void	conv_x(va_list *list, t_struct *strct)
+void		conv_x(va_list *list, t_struct *strct)
 {
 	unsigned int nbr;
 
@@ -21,7 +20,7 @@ void	conv_x(va_list *list, t_struct *strct)
 	ft_print_hexa(nbr, 1, strct);
 }
 
-void	conv_capsx(va_list *list, t_struct *strct)
+void		conv_capsx(va_list *list, t_struct *strct)
 {
 	unsigned int nbr;
 
