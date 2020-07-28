@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils5.c                                           :+:      :+:    :+:   */
+/*   utils4.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/24 12:38:39 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/28 14:39:09 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/28 15:31:24 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ char		*ft_itoapos(int n)
 {
 	char				*str;
 	unsigned int		size;
-	long nbr;
-	
+	long long			nbr;
+
 	nbr = n;
 	size = number_size(n, 10);
 	if (!(str = malloc(sizeof(char) * size + 1)))
@@ -62,10 +62,10 @@ char		*ft_itoapos(int n)
 
 char		*ft_uitoapos(unsigned int n)
 {
-	char				*str;
-	unsigned int		size;
-	unsigned long nbr;
-	
+	char			*str;
+	unsigned int	size;
+	unsigned long	nbr;
+
 	nbr = n;
 	size = number_size(n, 10);
 	if (!(str = malloc(sizeof(char) * size + 1)))
