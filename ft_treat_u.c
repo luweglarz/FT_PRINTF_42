@@ -6,20 +6,19 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 14:47:57 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/27 15:20:02 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/28 15:26:32 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	conv_u(va_list *list, t_struct *strct)
+void		conv_u(va_list *list, t_struct *strct)
 {
 	unsigned int nbr;
 
 	nbr = va_arg(*list, unsigned int);
 	ft_print_unsigned(nbr, strct);
 }
-
 
 void		ft_put_minus_unsigned(char *str, t_struct *strct)
 {
@@ -55,4 +54,3 @@ void		ft_print_unsigned(unsigned int nbr, t_struct *strct)
 		ft_put_minus_unsigned(str, strct);
 	free(str);
 }
-
