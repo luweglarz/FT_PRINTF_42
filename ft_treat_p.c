@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 14:46:13 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/27 11:38:56 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/28 14:15:57 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void		conv_p(va_list *list, t_struct *strct)
 	unsigned long long nbr;
 
 	nbr = va_arg(*list, unsigned long long);
+	//printf("nbr :%llu\n", nbr);
 	ft_print_pointer(nbr, strct);
 }
 

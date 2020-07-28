@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 14:43:34 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/24 15:33:47 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/28 14:01:56 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void		conv_s(va_list *list, t_struct *strct)
 	str = va_arg(*list, char *);
 	if (!str)
 		str = "(null)";
+	if (strct->width < 0)
+		strct->width *= -1;
 	ft_print_string(str, strct);
 }
 

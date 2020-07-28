@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   flags.c                                            :+:      :+:    :+:   */
+/*   ft_flags_init.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/06 15:54:50 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/27 15:29:45 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/28 15:18:21 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,11 @@ void	conv_flag_minus(t_struct *strct)
 void	conv_flag_star(va_list *args, t_struct *strct)
 {
 	strct->width = va_arg(*args, int);
+	if (strct->width < 0 && strct->dot == 0)
+	{
+		strct->minus = 1;
+		strct->zero = 0;
+	}
 	strct->star = 1;
 }
 

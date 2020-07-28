@@ -1,73 +1,57 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils3.c                                           :+:      :+:    :+:   */
+/*   utils4.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/07/10 14:43:59 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/24 15:41:12 by lweglarz         ###   ########.fr       */
+/*   Created: 2020/07/23 14:02:34 by lweglarz          #+#    #+#             */
+/*   Updated: 2020/07/28 14:37:49 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	struct_init(t_struct *strct)
+int				ft_tolower(int c)
 {
-	strct->res = 0;
-	strct->index = 0;
+	if (c >= 'A' && c <= 'Z')
+		c += 32;
+	return (c);
 }
 
-void	flags_init(t_struct *strct)
+int				ft_isdigit(int c)
 {
-	strct->prec = 0;
-	strct->width = 0;
-	strct->zero = 0;
-	strct->star = 0;
-	strct->minus = 0;
-	strct->dot = 0;
-}
-
-int		ft_is_flag(int c)
-{
-	char	*flags;
-	int		i;
-
-	i = 0;
-	flags = "-0.*";
-	while (flags[i])
-	{
-		if (c == flags[i])
-			return (1);
-		i++;
-	}
+	if (c >= '0' && c <= '9')
+		return (1);
 	return (0);
 }
 
-int		ft_isconv(int c)
+long long		number_size(long long nb, int base)
 {
-	char	*conv;
-	int		i;
+	int	size;	
 
-	conv = "cspdiuxX%";
-	i = 0;
-	while (conv[i])
+	size = 0;
+	if (nb <= 0)
 	{
-		if (c == conv[i])
-			return (1);
-		i++;
+		size++;
 	}
-	return (0);
+	while (nb != 0)
+	{
+		nb = nb / base;
+		size++;
+	}
+	return (size);
 }
 
-void	ft_lowerstr(char *str)
+int			ft_isneg(int nbr, t_struct *strct)
 {
-	int i;
+	int neg;
 
-	i = 0;
-	while (str[i])
+	neg = 0;
+	if (nbr < 0)
 	{
-		str[i] = ft_tolower(str[i]);
-		i++;
+		neg = 1;
+		strct->width--;
 	}
+	return (neg);
 }
