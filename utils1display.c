@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/19 15:07:21 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/27 14:15:59 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/28 15:28:03 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,3 @@ void	ft_putwidth(int width, int size, t_struct *strct)
 		width -= 1;
 	}
 }
-
