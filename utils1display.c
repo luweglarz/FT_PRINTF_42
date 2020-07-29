@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/19 15:07:21 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/28 15:28:03 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/29 16:14:49 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ void	ft_putstrprec(char *str, int size, t_struct *strct)
 	}
 }
 
-void	ft_putwidth(int width, int size, t_struct *strct)
+void	ft_putwidth(int width, int size, int fill, t_struct *strct)
 {
 	while (width - size > 0)
 	{
-		if (strct->zero == 1)
+		if (fill == 1)
 			ft_putchar('0', strct);
 		else
 			ft_putchar(' ', strct);

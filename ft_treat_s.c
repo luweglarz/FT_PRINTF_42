@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 14:43:34 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/28 14:01:56 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/29 16:44:51 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ void		conv_s(va_list *list, t_struct *strct)
 void		ft_put_minus_string(char *str, t_struct *strct)
 {
 	if (strct->dot == 1)
+	{
+		ft_putwidth(strct->prec, ft_strlen(str), 0, strct);
 		ft_putstrprec(str, strct->prec, strct);
+	}
 	else
 		ft_putstrprec(str, ft_strlen(str), strct);
 }
@@ -40,9 +43,9 @@ void		ft_print_string(char *str, t_struct *strct)
 	if (strct->minus == 1)
 		ft_put_minus_string(str, strct);
 	if (strct->dot == 1)
-		ft_putwidth(strct->width, strct->prec, strct);
+		ft_putwidth(strct->width, strct->prec, 0, strct);
 	else
-		ft_putwidth(strct->width, ft_strlen(str), strct);
+		ft_putwidth(strct->width, ft_strlen(str), strct->zero, strct);
 	if (strct->minus == 0)
 		ft_put_minus_string(str, strct);
 }

@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 14:47:03 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/28 15:24:16 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/29 16:38:33 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,8 @@ void		conv_id(va_list *list, t_struct *strct)
 	int	nbr;
 
 	nbr = va_arg(*list, int);
-	if (strct->width < 0 && strct->dot == 0)
-		strct->width *= -1;
 	if (strct->prec < 0)
-		strct->prec = 0;
+		strct->prec = 1;
 	ft_print_integer(nbr, strct);
 }
 
@@ -31,8 +29,7 @@ void		ft_put_minus_integer(char *str, t_struct *strct, int neg)
 	{
 		if (neg == 1)
 			ft_putchar('-', strct);
-		strct->zero = 1;
-		ft_putwidth(strct->prec, ft_strlen(str), strct);
+		ft_putwidth(strct->prec, ft_strlen(str), 1, strct);
 		ft_putstrprec(str, strct->prec, strct);
 	}
 	else
@@ -58,13 +55,10 @@ void		ft_print_integer(int nbr, t_struct *strct)
 		ft_putchar('-', strct);
 	if (strct->minus == 1)
 		ft_put_minus_integer(str, strct, neg);
-	if (strct->dot == 1)
-	{
-		strct->zero = 0;
-		ft_putwidth(strct->width, strct->prec, strct);
-	}
+	if (strct->dot == 1 && strct->prec > 1)
+		ft_putwidth(strct->width, strct->prec, 0, strct);
 	else
-		ft_putwidth(strct->width, ft_strlen(str), strct);
+		ft_putwidth(strct->width, ft_strlen(str), strct->zero, strct);
 	if (strct->minus == 0)
 		ft_put_minus_integer(str, strct, neg);
 	free(str);

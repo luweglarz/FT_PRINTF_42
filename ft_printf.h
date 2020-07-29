@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/10 16:50:20 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/28 15:22:51 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/29 13:23:25 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void			ft_puthexax(unsigned long long nbr, t_struct *strct);
 void			ft_puthexcapsx(unsigned long long nbr, t_struct *strct);
 void			ft_putstrprec(char *str, int size, t_struct *strct);
 void			ft_putunsigned(unsigned int nbr, t_struct *strct);
-void			ft_putwidth(int width, int size, t_struct *strct);
+void			ft_putwidth(int width, int size, int fill, t_struct *strct);
 
 void			ft_print_char(char c, t_struct *strct);
 void			ft_put_minus_string(char *str, t_struct *strct);

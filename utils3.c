@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 14:02:34 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/28 15:29:00 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/29 11:35:23 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ long long		number_size(long long nb, int base)
 	int	size;
 
 	size = 0;
-	if (nb <= 0)
-	{
+	if (nb == 0)
 		size++;
-	}
+	if (nb < 0)
+		nb *= -1;
 	while (nb != 0)
 	{
 		nb = nb / base;

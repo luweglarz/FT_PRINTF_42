@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 14:46:13 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/28 15:24:55 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/29 13:25:45 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void		conv_p(va_list *list, t_struct *strct)
 	unsigned long long nbr;
 
 	nbr = va_arg(*list, unsigned long long);
+	if (strct->prec < 0)
+		strct->prec = 1;
 	ft_print_pointer(nbr, strct);
 }
 
@@ -25,8 +27,7 @@ void		ft_put_minus_pointer(char *str, t_struct *strct)
 	ft_putstrprec("0x", 2, strct);
 	if (strct->dot == 1)
 	{
-		strct->zero = 1;
-		ft_putwidth(strct->prec, ft_strlen(str), strct);
+		ft_putwidth(strct->prec, ft_strlen(str), 1, strct);
 		ft_putstrprec(str, strct->prec, strct);
 	}
 	else
@@ -45,7 +46,7 @@ void		ft_print_pointer(unsigned long long nbr, t_struct *strct)
 		strct->prec = ft_strlen(str);
 	if (strct->minus == 1)
 		ft_put_minus_pointer(str, strct);
-	ft_putwidth(strct->width, ft_strlen(str) + 2, strct);
+	ft_putwidth(strct->width, ft_strlen(str) + 2, 0, strct);
 	if (strct->minus == 0)
 		ft_put_minus_pointer(str, strct);
 	free(str);

@@ -6,11 +6,12 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/24 12:38:39 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/28 15:31:24 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/29 16:45:05 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 char		*ft_strdup(const char *s)
 {
@@ -36,7 +37,7 @@ char		*ft_strdup(const char *s)
 char		*ft_itoapos(int n)
 {
 	char				*str;
-	unsigned int		size;
+	int					size;
 	long long			nbr;
 
 	nbr = n;
@@ -47,10 +48,7 @@ char		*ft_itoapos(int n)
 	if (nbr == 0)
 		str[0] = '0';
 	if (nbr < 0)
-	{
 		nbr = nbr * -1;
-		size--;
-	}
 	while (nbr != 0)
 	{
 		str[size] = (nbr % 10) + '0';
