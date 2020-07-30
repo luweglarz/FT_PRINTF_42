@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 14:48:35 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/30 14:48:02 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/30 15:30:02 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void		conv_x(va_list *list, t_struct *strct)
 		strct->prec = 1;
 		strct->precisneg = 1;
 	}
-	
 	ft_print_hexa(nbr, 1, strct);
 }
 

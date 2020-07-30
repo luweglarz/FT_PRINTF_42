@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 14:02:34 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/29 11:35:23 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/30 15:25:27 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,11 @@ long long		number_size(long long nb, int base)
 	return (size);
 }
 
-int				ft_isneg(int nbr, t_struct *strct)
+void			ft_isneg(int nbr, t_struct *strct)
 {
-	int neg;
-
-	neg = 0;
 	if (nbr < 0)
 	{
-		neg = 1;
+		strct->neg = 1;
 		strct->width--;
 	}
-	return (neg);
 }

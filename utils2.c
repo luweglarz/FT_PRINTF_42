@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/10 14:43:59 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/30 12:41:39 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/30 15:24:52 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	flags_init(t_struct *strct)
 	strct->minus = 0;
 	strct->dot = 0;
 	strct->precisneg = 0;
+	strct->neg = 0;
 }
 
 int		ft_is_flag(int c)
