@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/10 16:50:20 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/29 13:23:25 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/07/30 13:11:44 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct	s_struct
 	int		zero;
 	int		star;
 	int		dot;
+	int     precisneg;
 }				t_struct;
 
 typedef struct	s_tab
@@ -67,7 +68,7 @@ void			ft_put_minus_string(char *str, t_struct *strct);
 void			ft_print_string(char *str, t_struct *strct);
 void			ft_put_minus_pointer(char *str, t_struct *strct);
 void			ft_print_pointer(unsigned long long nbr, t_struct *strct);
-void			ft_put_minus_integer(char *str, t_struct *strct, int neg);
+void		ft_put_minus_integer(char *str, t_struct *strct, int neg, int hasneg);
 void			ft_print_integer(int nbr, t_struct *strct);
 void			ft_put_minus_unsigned(char *str, t_struct *strct);
 void			ft_print_unsigned(unsigned int nbr, t_struct *strct);
