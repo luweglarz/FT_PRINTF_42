@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/10 14:46:41 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/08/03 11:53:17 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/08/03 16:18:27 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_tab		g_tab[9] = {
 
 void		ft_parse_subsp(const char *str, t_struct *strct, va_list *args)
 {
-	while (str[strct->index])
+	while (str[strct->index] && str[strct->index + 1])
 	{
 		if (!ft_isdigit(str[strct->index]) && !ft_is_flag(str[strct->index]))
 			break ;
@@ -47,7 +47,7 @@ void		ft_parse(const char *str, t_struct *strct, va_list *args)
 	while (str[strct->index])
 	{
 		flags_init(strct);
-		if (str[strct->index] == '%')
+		if (str[strct->index] == '%' && str[strct->index + 1])
 		{
 			tempindex = 0;
 			strct->index++;
@@ -56,8 +56,6 @@ void		ft_parse(const char *str, t_struct *strct, va_list *args)
 				tempindex++;
 			if (tempindex <= 9)
 				g_tab[tempindex].tabcfunc(args, strct);
-			else
-				break ;
 		}
 		else
 			ft_putchar(str[strct->index], strct);
