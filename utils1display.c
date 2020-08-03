@@ -6,22 +6,11 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/19 15:07:21 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/29 16:14:49 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/08/03 11:52:36 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
-
-size_t	ft_strlen(const char *s)
-{
-	unsigned int	i;
-
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
-}
 
 void	ft_putchar(char c, t_struct *strct)
 {

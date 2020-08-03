@@ -6,12 +6,11 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/07 14:47:03 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/30 15:29:49 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/08/03 11:52:52 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 void		conv_id(va_list *list, t_struct *strct)
 {

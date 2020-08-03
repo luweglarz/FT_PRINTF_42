@@ -6,11 +6,21 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/23 14:02:34 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/30 15:25:27 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/08/03 11:54:18 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+size_t			ft_strlen(const char *s)
+{
+	unsigned int	i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
 
 int				ft_tolower(int c)
 {

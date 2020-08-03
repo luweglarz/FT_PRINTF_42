@@ -6,12 +6,11 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/24 12:38:39 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/29 16:45:05 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/08/03 11:52:37 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 char		*ft_strdup(const char *s)
 {
