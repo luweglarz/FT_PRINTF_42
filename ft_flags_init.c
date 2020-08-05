@@ -37,12 +37,12 @@ void	conv_flag_minus(t_struct *strct)
 void	conv_flag_star(va_list *args, t_struct *strct)
 {
 	strct->width = va_arg(*args, int);
-	if (strct->width < 0 && strct->dot == 0)
-	{
-		strct->minus = 1;
-		strct->width *= -1;
-		strct->zero = 0;
-	}
+	//if (strct->width < 0 && strct->dot == 0)
+	//{
+	//	strct->minus = 1;
+	//	strct->width *= -1;
+	//	strct->zero = 0;
+	//}
 	strct->star = 1;
 }
 
