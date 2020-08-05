@@ -6,7 +6,7 @@
 /*   By: lweglarz <lweglarz@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/07/06 15:54:50 by lweglarz          #+#    #+#             */
-/*   Updated: 2020/07/30 12:28:04 by lweglarz         ###   ########.fr       */
+/*   Updated: 2020/08/05 22:05:40 by lweglarz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,12 @@ void	conv_flag_minus(t_struct *strct)
 void	conv_flag_star(va_list *args, t_struct *strct)
 {
 	strct->width = va_arg(*args, int);
-	//if (strct->width < 0 && strct->dot == 0)
-	//{
-	//	strct->minus = 1;
-	//	strct->width *= -1;
-	//	strct->zero = 0;
-	//}
+	if (strct->width < 0 && strct->dot == 0)
+	{
+		strct->minus = 1;
+		strct->width *= -1;
+		strct->zero = 0;
+	}
 	strct->star = 1;
 }
 
