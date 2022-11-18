@@ -24,7 +24,7 @@ void		ft_print_char(char c, t_struct *strct)
 {
 	if (strct->minus == 0)
 		ft_putwidth(strct->width, 1, 0, strct);
-	ft_putchar(c, strct);
+	ft_putchar_strct(c, strct);
 	if (strct->minus == 1)
 		ft_putwidth(strct->width, 1, 0, strct);
 }

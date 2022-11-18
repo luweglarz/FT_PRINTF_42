@@ -17,7 +17,7 @@ void	conv_per(va_list *list, t_struct *strct)
 	(void)list;
 	if (strct->minus == 0)
 		ft_putwidth(strct->width, 1, strct->zero, strct);
-	ft_putchar('%', strct);
+	ft_putchar_strct('%', strct);
 	if (strct->minus == 1)
 		ft_putwidth(strct->width, 1, strct->zero, strct);
 }

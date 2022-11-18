@@ -12,28 +12,11 @@
 
 #include "ft_printf.h"
 
-size_t			ft_strlen(const char *s)
-{
-	unsigned int	i;
-
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
-}
-
 int				ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
 		c += 32;
 	return (c);
-}
-
-int				ft_isdigit(int c)
-{
-	if (c >= '0' && c <= '9')
-		return (1);
-	return (0);
 }
 
 long long		number_size(long long nb, int base)

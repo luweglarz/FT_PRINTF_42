@@ -28,7 +28,7 @@ void		conv_id(va_list *list, t_struct *strct)
 void		ft_put_minus_integer(char *str, t_struct *strct, int hasneg)
 {
 	if (strct->neg == 1 && hasneg == 0)
-		ft_putchar('-', strct);
+		ft_putchar_strct('-', strct);
 	if (strct->dot == 1 && strct->precisneg == 0)
 	{
 		ft_putwidth(strct->prec, ft_strlen(str), 1, strct);
@@ -56,7 +56,7 @@ void		ft_print_integer(int nbr, t_struct *strct)
 		(strct->neg == 1 && strct->zero == 1 && strct->dot == 0))
 	{
 		hasneg = 1;
-		ft_putchar('-', strct);
+		ft_putchar_strct('-', strct);
 	}
 	if (strct->minus == 1)
 		ft_put_minus_integer(str, strct, hasneg);

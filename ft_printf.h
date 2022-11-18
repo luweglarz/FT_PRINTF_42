@@ -17,6 +17,8 @@
 # include <stdarg.h>
 # include <unistd.h>
 
+#include "libft/libft.h"
+
 typedef struct	s_struct
 {
 	int		index;
@@ -57,7 +59,7 @@ void			conv_flag_minus(t_struct *strct);
 void			conv_flag_star(va_list *args, t_struct *strct);
 void			conv_flag_digit(char c, t_struct *strct);
 
-void			ft_putchar(char c, t_struct *strct);
+void			ft_putchar_strct(char c, t_struct *strct);
 void			ft_puthexax(unsigned long long nbr, t_struct *strct);
 void			ft_puthexcapsx(unsigned long long nbr, t_struct *strct);
 void			ft_putstrprec(char *str, int size, t_struct *strct);
@@ -76,8 +78,6 @@ void			ft_print_unsigned(unsigned int nbr, t_struct *strct);
 void			ft_put_minus_hexa(char *str, t_struct *strct);
 void			ft_print_hexa(long long nbr, int islower, t_struct *strct);
 
-size_t			ft_strlen(const char *s);
-int				ft_isdigit(int c);
 long long		number_size(long long nb, int base);
 int				ft_isconv(int c);
 void			struct_init(t_struct *strct);
@@ -86,7 +86,6 @@ int				ft_is_flag(int c);
 int				ft_tolower(int c);
 void			ft_lowerstr(char *str);
 char			*ft_itoa_hexa(unsigned long long n);
-char			*ft_strdup(const char *s);
 char			*ft_itoapos(int n);
 char			*ft_uitoapos(unsigned int n);
 void			ft_isneg(int nbr, t_struct *strct);

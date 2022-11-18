@@ -58,7 +58,7 @@ void		ft_parse(const char *str, t_struct *strct, va_list *args)
 				g_tab[tempindex].tabcfunc(args, strct);
 		}
 		else
-			ft_putchar(str[strct->index], strct);
+			ft_putchar_strct(str[strct->index], strct);
 		strct->index++;
 	}
 }

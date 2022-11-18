@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-void	ft_putchar(char c, t_struct *strct)
+void	ft_putchar_strct(char c, t_struct *strct)
 {
 	write(1, &c, 1);
 	strct->res++;
@@ -25,7 +25,7 @@ void	ft_putstrprec(char *str, int size, t_struct *strct)
 	i = 0;
 	while (str[i] && i < size)
 	{
-		ft_putchar(str[i], strct);
+		ft_putchar_strct(str[i], strct);
 		i++;
 	}
 }
@@ -35,9 +35,9 @@ void	ft_putwidth(int width, int size, int fill, t_struct *strct)
 	while (width - size > 0)
 	{
 		if (fill == 1)
-			ft_putchar('0', strct);
+			ft_putchar_strct('0', strct);
 		else
-			ft_putchar(' ', strct);
+			ft_putchar_strct(' ', strct);
 		width -= 1;
 	}
 }
